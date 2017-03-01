@@ -1,0 +1,35 @@
+-- cara insert data masal ke database
+sudo service mongod stop
+sudo service mongod restart
+
+db.department.insert([
+   { code: "001", name: "IT", major: { 1: "sistem informasi", 2: 'sistem jaringan'}  },
+   { code: "002", name: "MANAGEMENT", major: { 1: "management informatika", 2: 'management bisns'}  },
+   { code: "003", name: "DOCTOR", major: { 1: "doktor anak", 2: 'doktor gigi'}  },
+   { code: "004", name: "TEKNIK", major: { 1: "teknik mesin", 2: 'teknik industri'}  },
+   { code: "005", name: "AKUNTANSI", major: { 1: "akutansi umum", 2: 'akutansi umum'}  }
+]);
+
+-- buat collections
+db.createCollection("department", {} )
+db.createCollection("student", {} )
+
+-- hapus collections
+db.department.drop()
+
+show collections
+show dbs
+use nama_database
+
+db.getCollectionInfos({name: "department"})
+
+db.department.find({code : "001", code : "002"})
+
+
+db.department.find()
+
+db.student.insert([
+   { code: "001", name: "IT", major: { 1: "sistem informasi", 2: 'sistem jaringan'}  },
+   { code: "002", name: "MANAGEMENT", major: { 1: "management informatika", 2: 'management bisns'}  },
+   { code: "003", name: "DOCTOR", major: { 1: "doktor anak", 2: 'doktor gigi'}  },
+   ]);
